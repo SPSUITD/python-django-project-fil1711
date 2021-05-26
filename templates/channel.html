@@ -1,0 +1,10 @@
+{% for msg in messages %}
+  <p>{{ msg.author }} -> {{ msg.text }}</p>
+{% endfor %}
+<form action="/new/" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="channel" value="{{channel.title}}">
+  <input type="text" name="text" placeholder="Ваше сообщение">
+  <button type="submit">Отправить сообщение</button>
+</form>
+<a href="/">На главную</a>
